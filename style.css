@@ -1,0 +1,478 @@
+:root{
+--red:#ff2a2a;
+--dark:#0b0b0d;
+--panel:#121216;
+}
+
+body{
+margin:0;
+background:#0a0a0c;
+color:#e6e6e6;
+font-family:Rajdhani,sans-serif;
+}
+
+/* scanlines */
+.scanlines{
+position:fixed;
+inset:0;
+pointer-events:none;
+background:repeating-linear-gradient(to bottom,rgba(255,255,255,.04),rgba(255,255,255,.04)1px,transparent 2px,transparent 4px);
+}
+
+.layout{display:flex;min-height:100vh;}
+.panel{padding:35px;}
+
+.left{width:320px;background:#08080a;border-right:1px solid #1c1c24;}
+.right{flex:1;background:#0d0d12;}
+
+h1{font-family:Orbitron;letter-spacing:2px;margin-top:20px;}
+h2{font-family:Orbitron;color:#fff;border-bottom:1px solid #222;padding-bottom:6px;margin-top:0;}
+
+nav{margin-top:30px;display:flex;flex-direction:column;gap:10px;}
+
+.tab{
+background:none;border:1px solid #222;color:#bbb;padding:12px;
+font-family:Orbitron;cursor:pointer;text-align:left;
+}
+
+.tab.active{border-color:var(--red);box-shadow:inset 3px 0 var(--red);color:white;}
+.tab:hover{border-color:var(--red);}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.card{border:1px solid #1f1f28;padding:15px;background:#101017;}
+.card.wide{grid-column:span 2;}
+
+.card b{display:block;color:#888;margin-top:8px;}
+.card span{color:#fff;}
+
+.stat{display:flex;justify-content:space-between;border-bottom:1px solid #1f1f28;padding:8px 0;}
+.relationship{border:1px solid #1f1f28;padding:12px;margin:12px 0;background:#101017;}
+
+.gallery img{width:260px;border:1px solid #222;margin:10px;}
+.tabcontent{display:none;}
+.tabcontent.active{display:block;animation:fade .4s ease;}
+
+@keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;}}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:14px;
+margin:20px 0;
+}
+
+.grid div{
+border:1px solid #222;
+padding:10px;
+background:#0f0f13;
+}
+
+.grid label{
+display:block;
+color:#888;
+font-size:12px;
+}
+
+.sub{
+margin-top:30px;
+color:#bbb;
+letter-spacing:1px;
+}
+
+.block{
+border-left:3px solid var(--red);
+padding:10px 15px;
+background:#0f0f13;
+margin:15px 0;
+}
+
+.columns{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.readout{
+font-family:Orbitron;
+line-height:1.8;
+background:#0f0f13;
+border:1px solid #222;
+padding:20px;
+margin-bottom:30px;
+}
+
+.readout span{
+color:var(--red);
+float:right;
+}
+/* profile grid */
+.specGrid{
+display:grid;
+grid-template-columns:200px 1fr;
+gap:6px 20px;
+margin-bottom:30px;
+}
+
+.specGrid div{
+padding:6px 0;
+border-bottom:1px solid #1f1f26;
+}
+
+.specGrid div:nth-child(odd){
+color:#888;
+}
+
+.dataList{
+list-style:none;
+padding-left:0;
+}
+
+.dataList li{
+padding:6px 0;
+border-bottom:1px solid #1a1a20;
+}
+
+.stat small{
+display:block;
+color:#888;
+margin-top:4px;
+font-size:12px;
+}
+
+.note{
+border:1px dashed #333;
+padding:15px;
+color:#aaa;
+margin-top:20px;
+}
+.avatarWrap img {
+    position: relative;
+    left: -340px; /* move image horizontally */
+    top: -40px;   /* move image vertically */
+}
+.avatarWrap {
+    overflow: hidden;
+}
+.galleryRow {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.galleryImages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.galleryImages img {
+    max-width: 300px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.appearanceNote {
+    max-width: 260px;
+    padding: 16px;
+    border: 1px solid rgba(255,0,0,0.25);
+    background: rgba(255,0,0,0.05);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.05em;
+}
+
+.appearanceNote h3 {
+    color: #ff4a4a;
+    margin-bottom: 8px;
+}
+.galleryWrap {
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.appearanceHeader {
+    padding: 14px 18px;
+    border: 1px solid rgba(255,0,0,0.25);
+    background: rgba(255,0,0,0.05);
+    text-align: center;
+}
+
+.appearanceHeader h3 {
+    color: #ff4a4a;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+.appearanceHeader p {
+    opacity: 0.75;
+    font-size: 0.9em;
+}
+
+.imageStack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.imageStack img {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.imageStack img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 18px rgba(255,0,0,0.25);
+}
+.telemetryGrid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+}
+
+.telemetryColumn h2 {
+margin-bottom: 20px;
+}
+
+.stat.advanced .bar span {
+animation: loadBar 1.4s ease forwards;
+}
+
+@keyframes loadBar {
+from { width: 0; }
+}
+
+.stat.small {
+margin-bottom: 12px;
+}
+
+.bar {
+background: #111;
+border: 1px solid #222;
+height: 8px;
+position: relative;
+overflow: hidden;
+}
+
+.bar span {
+display: block;
+height: 100%;
+background: linear-gradient(90deg, #b30000, #ff2e2e);
+box-shadow: 0 0 8px #ff2e2e;
+}
+
+.bar span::after {
+content: '';
+position: absolute;
+right: 0;
+top: 0;
+width: 2px;
+height: 100%;
+background: #fff;
+animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+0% { opacity: .2; }
+50% { opacity: 1; }
+100% { opacity: .2; }
+}
+
+.bar.negative span {
+background: linear-gradient(90deg, #444, #888);
+box-shadow: none;
+}
+
+.radarSim {
+position: relative;
+height: 150px;
+border: 1px solid #222;
+background: radial-gradient(circle at center, #111 0%, #000 70%);
+margin-bottom: 25px;
+overflow: hidden;
+}
+
+.radarLine {
+position: absolute;
+bottom: 0;
+left: 0;
+width: var(--value);
+height: 2px;
+background: #ff2e2e;
+box-shadow: 0 0 6px #ff2e2e;
+animation: sweep 3s infinite;
+}
+
+@keyframes sweep {
+0% { opacity: .3; }
+50% { opacity: 1; }
+100% { opacity: .3; }
+}
+.relationshipStatus {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 30px;
+border: 1px solid #ff2e2e;
+color: #ff2e2e;
+font-size: 0.9rem;
+letter-spacing: 2px;
+}
+
+.relationshipGrid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 30px;
+}
+
+.relationshipCard {
+background: #0b0b0b;
+border: 1px solid #222;
+padding: 20px;
+transition: 0.3s ease;
+}
+
+.relationshipCard:hover {
+border-color: #ff2e2e;
+transform: translateY(-3px);
+}
+
+.relationshipCard h3 {
+margin-bottom: 10px;
+}
+
+.tensionBar {
+background: #111;
+height: 6px;
+margin: 15px 0;
+position: relative;
+}
+
+.tensionBar span {
+display: block;
+height: 100%;
+background: linear-gradient(90deg, #ff2e2e, #8b0000);
+box-shadow: 0 0 8px #ff2e2e;
+}
+
+.relationshipLog {
+display: none;
+margin-top: 15px;
+font-size: 0.9rem;
+color: #aaa;
+border-top: 1px solid #222;
+padding-top: 10px;
+}
+
+.relationshipCard button {
+background: none;
+border: 1px solid #333;
+color: #ccc;
+padding: 5px 10px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.relationshipCard button:hover {
+border-color: #ff2e2e;
+color: #ff2e2e;
+}
+.telemetryGrid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 25px;
+margin-bottom: 40px;
+}
+
+.statCard {
+background: rgba(255,0,0,0.05);
+border: 1px solid rgba(255,0,0,0.3);
+padding: 20px;
+text-align: center;
+position: relative;
+transition: 0.3s ease;
+}
+
+.statCard:hover {
+background: rgba(255,0,0,0.1);
+box-shadow: 0 0 15px rgba(255,0,0,0.4);
+}
+
+.circle {
+width: 120px;
+height: 120px;
+margin: 15px auto;
+border-radius: 50%;
+background: conic-gradient(red 0%, #111 0%);
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: Orbitron;
+font-size: 22px;
+}
+
+.horizontalStats {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.hStat span {
+display: block;
+margin-bottom: 5px;
+}
+
+.hBar {
+background: #111;
+height: 8px;
+position: relative;
+}
+
+.hBar div {
+height: 100%;
+background: red;
+box-shadow: 0 0 8px red;
+transition: width 1.2s ease;
+}
+.relationshipCard {
+border: 1px solid rgba(255,0,0,0.3);
+padding: 20px;
+margin-bottom: 20px;
+background: rgba(255,0,0,0.04);
+transition: 0.3s ease;
+}
+
+.relationshipCard:hover {
+box-shadow: 0 0 12px rgba(255,0,0,0.4);
+}
+
+.status {
+font-size: 13px;
+opacity: 0.7;
+display: block;
+margin-bottom: 10px;
+}
+
+.relationshipMeter {
+height: 6px;
+background: #111;
+margin: 10px 0;
+}
+
+.meterFill {
+height: 100%;
+background: red;
+box-shadow: 0 0 10px red;
+}
+
+.relationshipCard.rival .meterFill {
+background: crimson;
+box-shadow: 0 0 10px crimson;
+}
+
+.relationshipCard.ally .meterFill {
+background: lime;
+box-shadow: 0 0 10px lime;
+}
